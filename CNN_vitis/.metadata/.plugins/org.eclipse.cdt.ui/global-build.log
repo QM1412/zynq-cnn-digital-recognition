@@ -1,0 +1,59 @@
+Nothing to build in platform 'ov5640_hdmi_top'
+
+12:25:51 **** Incremental Build of configuration Debug for project CNN ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+' '
+make --no-print-directory main-build
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/sw/ov5640_hdmi_top/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:62:12: warning: unused variable 'affine2_b' [-Wunused-variable]
+   62 |     float *affine2_b = (float *)0x21CD200;
+      |            ^~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/param_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/param_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/sw/ov5640_hdmi_top/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/param_init.d" -MT"src/param_init.o" -o "src/param_init.o" "../src/param_init.c"
+../src/param_init.c: In function 'affine1_param_init':
+../src/param_init.c:803:21: warning: initialization of 'float *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  803 |  float *affine1_w = 0x2025000;
+      |                     ^~~~~~~~~
+../src/param_init.c:804:21: warning: initialization of 'float *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  804 |  float *affine1_b = 0x21CB000;
+      |                     ^~~~~~~~~
+../src/param_init.c: In function 'affine2_param_init':
+../src/param_init.c:432913:21: warning: initialization of 'float *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+432913 |  float *affine2_w = 0x21CC200;
+       |                     ^~~~~~~~~
+../src/param_init.c:432914:21: warning: initialization of 'float *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+432914 |  float *affine2_b = 0x21CD200;
+       |                     ^~~~~~~~~
+'Finished building: ../src/param_init.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/sw/ov5640_hdmi_top/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: CNN.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LF:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/sw/ov5640_hdmi_top/standalone_ps7_cortexa9_0/bsplib/lib -o "CNN.elf"  ./src/main.o ./src/param_init.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: CNN.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size CNN.elf  |tee "CNN.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+11445658	   1160	  22648	11469466	 af029a	CNN.elf
+'Finished building: CNN.elf.size'
+' '
+12:26:35 **** Incremental Build of configuration Debug for project CNN_system ****
+make all 
+Generating bif file for the system project
+generate_system_bif.bat 13676 F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/ov5640_hdmi_top.xpfm standalone_ps7_cortexa9_0 F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/system.bif
+sdcard_gen --xpfm F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/ov5640_hdmi_top.xpfm --sys_config ov5640_hdmi_top --bif F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/system.bif --bitstream F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit --elf F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/Debug/CNN.elf,ps7_cortexa9_0
+creating BOOT.BIN using F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit
+Running F:/Xilinx/Vitis/2021.1/bin/bootgen  -image F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN

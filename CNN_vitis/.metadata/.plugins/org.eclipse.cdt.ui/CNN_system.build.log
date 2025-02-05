@@ -1,0 +1,10 @@
+12:26:35 **** Incremental Build of configuration Debug for project CNN_system ****
+make all 
+Generating bif file for the system project
+generate_system_bif.bat 13676 F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/ov5640_hdmi_top.xpfm standalone_ps7_cortexa9_0 F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/system.bif
+sdcard_gen --xpfm F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/ov5640_hdmi_top.xpfm --sys_config ov5640_hdmi_top --bif F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/system.bif --bitstream F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit --elf F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/Debug/CNN.elf,ps7_cortexa9_0
+creating BOOT.BIN using F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit
+Running F:/Xilinx/Vitis/2021.1/bin/bootgen  -image F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+
+12:26:47 Build Finished (took 11s.895ms)
+

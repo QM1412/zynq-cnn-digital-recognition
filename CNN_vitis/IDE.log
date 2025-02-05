@@ -1,0 +1,63 @@
+11:47:11 INFO  : Launching XSCT server: xsct.bat -n  -interactive F:\Graduate_Design\zynq_test\OV5640_HDMI_PS\CNN_vitis\temp_xsdb_launch_script.tcl
+11:47:11 INFO  : Platform repository initialization has completed.
+11:47:12 INFO  : Registering command handlers for Vitis TCF services
+11:47:13 INFO  : XSCT server has started successfully.
+11:47:14 INFO  : plnx-install-location is set to ''
+11:47:14 INFO  : Successfully done setting XSCT server connection channel  
+11:47:14 INFO  : Successfully done query RDI_DATADIR 
+11:47:14 INFO  : Successfully done setting workspace for the tool. 
+11:48:26 INFO  : Result from executing command 'getProjects': ov5640_hdmi_top
+11:48:26 INFO  : Result from executing command 'getPlatforms': 
+11:48:26 WARN  : An unexpected exception occurred in the module 'platform project logging'
+11:48:27 INFO  : Platform 'ov5640_hdmi_top' is added to custom repositories.
+11:48:35 INFO  : Platform 'ov5640_hdmi_top' is added to custom repositories.
+11:52:30 INFO  : Result from executing command 'getProjects': ov5640_hdmi_top
+11:52:30 INFO  : Result from executing command 'getPlatforms': ov5640_hdmi_top|F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/ov5640_hdmi_top.xpfm
+12:25:22 INFO  : Checking for BSP changes to sync application flags for project 'CNN'...
+12:25:51 INFO  : Checking for BSP changes to sync application flags for project 'CNN'...
+12:26:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:26:59 INFO  : Jtag cable 'Digilent JTAG-SMT3 210357A7D00EA' is selected.
+12:26:59 INFO  : 'jtag frequency' command is executed.
+12:26:59 INFO  : Context for 'APU' is selected.
+12:26:59 INFO  : System reset is completed.
+12:27:02 INFO  : 'after 3000' command is executed.
+12:27:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT3 210357A7D00EA" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT3-210357A7D00EA-13722093-0"}' command is executed.
+12:27:03 INFO  : Device configured successfully with "F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit"
+12:27:03 INFO  : Context for 'APU' is selected.
+12:27:04 INFO  : Hardware design and registers information is loaded from 'F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/hw/ov5640_hdmi_top.xsa'.
+12:27:04 INFO  : 'configparams force-mem-access 1' command is executed.
+12:27:04 INFO  : Context for 'APU' is selected.
+12:27:04 INFO  : Sourcing of 'F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/psinit/ps7_init.tcl' is done.
+12:27:04 INFO  : 'ps7_init' command is executed.
+12:27:04 INFO  : 'ps7_post_config' command is executed.
+12:27:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:27:26 INFO  : The application 'F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/Debug/CNN.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:27:26 INFO  : 'configparams force-mem-access 0' command is executed.
+12:27:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT3 210357A7D00EA" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT3-210357A7D00EA-13722093-0"}
+fpga -file F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/bitstream/ov5640_hdmi_top.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/ov5640_hdmi_top/export/ov5640_hdmi_top/hw/ov5640_hdmi_top.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow F:/Graduate_Design/zynq_test/OV5640_HDMI_PS/CNN_vitis/CNN/Debug/CNN.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:27:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:27:26 INFO  : 'con' command is executed.
+12:27:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:27:26 INFO  : Launch script is exported to file 'F:\Graduate_Design\zynq_test\OV5640_HDMI_PS\CNN_vitis\CNN_system\_ide\scripts\systemdebugger_cnn_system_standalone.tcl'
+12:39:56 INFO  : Disconnected from the channel tcfchan#3.
